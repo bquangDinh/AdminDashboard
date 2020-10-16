@@ -315,7 +315,7 @@ button{
                 &{
                     transform: scale(0);
                     transition: transform .5s ease;
-                    transition-delay: calc(variables.$menubar-animated-item-duration * var(--index));
+                    transition-delay: calc(0.095s * var(--index));
                 }
     
                 &.show{

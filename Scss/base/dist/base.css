@@ -226,7 +226,7 @@ button {
 .page-wrapper .left-container .menubar .menubar-animated-item {
   transform: scale(0);
   transition: transform 0.5s ease;
-  transition-delay: calc(variables.$menubar-animated-item-duration * var(--index));
+  transition-delay: calc(0.095s * var(--index));
 }
 .page-wrapper .left-container .menubar .menubar-animated-item.show {
   transform: scale(1);
