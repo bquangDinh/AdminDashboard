@@ -1,0 +1,1041 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!--Your title-->
+    <title>Dashboard</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" href="../Css/mypages/index.css">
+
+    <!--Your CSSs-->
+</head>
+<body>
+    <div class="page-wrapper">
+        <div class="left-container flex-item">
+            <!--Sidebar-->
+            <div class="sidebar animate__animated animate__slideInLeft">
+                <!--head logo-->
+                <div class="head-logo">
+                    <div class="head-logo__inner">
+                        <!-- Your logo here-->
+                    </div>
+                </div>
+
+                <button id="open-menubar-btn" style="display: none;">
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+
+                <!-- sidebar options -->
+                <div class="w-100 sidebar-options-container">
+                    <div class="sidebar-btn-container active">
+                        <button class="sidebar-btn active" data-panel-id="#dashboard-panel">
+                            <i class="fas fa-circle-notch"></i>
+                        </button>
+                    </div>
+                    <div class="sidebar-btn-container">
+                        <button class="sidebar-btn" data-panel-id="#your-tab-1">
+                            <i class="fas fa-pen-alt"></i>
+                        </button>
+                    </div> 
+                    <div class="sidebar-btn-container">
+                        <button class="sidebar-btn" data-panel-id="#your-tab-2">
+                            <i class="far fa-images"></i>
+                        </button>
+                    </div> 
+                    <div class="sidebar-btn-container">
+                        <button class="sidebar-btn" data-panel-id="#your-tab-3">
+                            <i class="fas fa-atom"></i>
+                        </button>
+                    </div> 
+                </div>  
+
+
+            </div>
+
+            <!--Menubar-->
+            <div class="menubar animate__animated animate__slideInLeft" id="adb-menubar">
+                <button id="collapse-menu-btn">
+                    <i class="fas fa-arrow-left"></i>
+                </button>
+                
+                <!--Panel-->
+                <div id="dashboard-panel" class="panel">
+                    <!--Panel title-->
+                    <div class="title menubar-animated-item show" style="--index: 0;">
+                        Dashboard
+                    </div>
+
+                    <!--Panel options container-->
+                    <div class="sub-option-container mt-5">
+                        <div class="sub-option-title menubar-animated-item show" style="--index: 1;">
+                            Explore
+                        </div>
+                        <ul class="sub-option-list list-unstyled">
+                            <li class="menubar-animated-item show" style="--index: 2;">
+                                <a href="./basic.html" class="sub-option">
+                                    <i class="far fa-eye"></i>
+                                    <span>Basic</span>
+                                </a>
+                            </li>
+                            <li class="menubar-animated-item show" style="--index: 3;">
+                                <a href="./form.html" class="sub-option">
+                                    <i class="fab fa-wpforms"></i>
+                                    <span>Form</span>
+                                </a>
+                            </li>
+                            <li class="menubar-animated-item show" style="--index: 4;">
+                                <a href="./components.html" class="sub-option">
+                                    <i class="fas fa-archive"></i>
+                                    <span>Components</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!--Panel-->
+                <div id="your-tab-1" class="panel" style="display: none">
+                    <!--Panel title-->
+                    <div class="title menubar-animated-item show" style="--index: 0;">
+                        Your Tab #1
+                    </div>
+
+                    <!--Panel options container-->
+                    <div class="sub-option-container mt-5">
+                        <div class="sub-option-title menubar-animated-item show" style="--index: 1;">
+                            Title #1
+                        </div>
+                        <ul class="sub-option-list list-unstyled">
+                            <li class="menubar-animated-item show" style="--index: 2;">
+                                <a href="#" class="sub-option">
+                                    <i class="far fa-eye menubar-icon" data-icon="overview"></i>
+                                    <span>Sub title #1</span>
+                                </a>
+                            </li>
+                            <li class="menubar-animated-item show" style="--index: 3;">
+                                <a href="#" class="sub-option">
+                                    <i class="fas fa-upload menu-icon" data-icon="published"></i>
+                                    <span>Sub title #2</span>
+                                </a>
+                            </li>
+                            <li class="menubar-animated-item show" style="--index: 4;">
+                                <a href="#" class="sub-option">
+                                    <i class="fas fa-minus-circle menu-icon" data-icon="hided"></i>
+                                    <span>Sub title #3</span>
+                                </a>
+                            </li>
+                            <li class="menubar-animated-item show" style="--index: 5;">
+                                <a href="#" class="sub-option">
+                                    <i class="far fa-save menu-icon" data-icon="saved"></i>
+                                    <span>Sub title #4</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <!--Panel options container-->
+                    <div class="sub-option-container mt-5">
+                        <div class="sub-option-title menubar-animated-item show" style="--index: 1;">
+                            Title #2
+                        </div>
+                        <ul class="sub-option-list list-unstyled">
+                            <li class="menubar-animated-item show" style="--index: 2;">
+                                <a href="" class="sub-option">
+                                    <i class="fas fa-plus"></i>
+                                    <span>Sub title #1</span>
+                                </a>
+                            </li> 
+                            <li class="menubar-animated-item show" style="--index: 3;">
+                                <a href="" class="sub-option">
+                                    <i class="far fa-edit"></i>
+                                    <span>Sub title #2</span>
+                                </a>
+                            </li> 
+                        </ul>
+                    </div>
+                </div>
+
+                <!--Panel-->
+                <div id="your-tab-2" class="panel" style="display: none">
+                    <!--Panel title-->
+                    <div class="title menubar-animated-item show" style="--index: 0;">
+                        Your tab #2
+                    </div>
+
+                    <!--Panel options container-->
+                    <div class="sub-option-container mt-5">
+                        <div class="sub-option-title menubar-animated-item show" style="--index: 1;">
+                            Title #1
+                        </div>
+                        <ul class="sub-option-list list-unstyled">
+                            <li class="menubar-animated-item show" style="--index: 2;">
+                                <a href="" class="sub-option">
+                                    <i class="far fa-image"></i>
+                                    <span>Sub title #1</span>
+                                </a>
+                            </li>
+                            <li class="menubar-animated-item show" style="--index: 3;">
+                                <a href="#" class="sub-option unavailabled">
+                                    <i class="fas fa-video"></i>
+                                    <span>Sub title #2</span>
+                                </a>
+                            </li>
+                            <li class="menubar-animated-item show" style="--index: 4;">
+                                <a href="" class="sub-option">
+                                    <i class="fas fa-music"></i>
+                                    <span>Sub title #3</span>
+                                </a>
+                            </li>
+                            <li class="menubar-animated-item show" style="--index: 5;">
+                                <a href="" class="sub-option">
+                                    <i class="fas fa-compact-disc"></i>
+                                    <span>Sub title #4</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!--Panel options container-->
+                    <div class="sub-option-container mt-5">
+                        <div class="sub-option-title menubar-animated-item show" style="--index: 1;">
+                            Title #2
+                        </div>
+                        <ul class="sub-option-list list-unstyled">
+                            <li class="menubar-animated-item show" style="--index: 1;">
+                                <a href="" class="sub-option">
+                                    <i class="fas fa-plus"></i>
+                                    <span>Sub title #1</span>
+                                </a>
+                            </li>
+                            <li class="menubar-animated-item show" style="--index: 2;">
+                                <a href="" class="sub-option">
+                                    <i class="fas fa-plus"></i>
+                                    <span>Sub title #2</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!--Panel-->
+                <div id="your-tab-3" class="panel" style="display: none">
+                    <!--Panel title-->
+                    <div class="title menubar-animated-item show" style="--index: 0;">
+                        Your tab #3
+                    </div>
+
+                    <!--Panel options container-->
+                    <div class="sub-option-container mt-5">
+                        <div class="sub-option-title menubar-animated-item show" style="--index: 1;">
+                            Title #1
+                        </div>
+                        <ul class="sub-option-list list-unstyled">
+                            <li class="menubar-animated-item show" style="--index: 2;">
+                                <a href="" class="sub-option">
+                                    <i class="far fa-eye menu-icon" data-icon="overview"></i>
+                                    <span>Sub title #1</span>
+                                </a>
+                            </li>
+                            <li class="menubar-animated-item show" style="--index: 3;">
+                                <a href="" class="sub-option">
+                                    <i class="fas fa-upload menu-icon" data-icon="published"></i>
+                                    <span>Sub title #2</span>
+                                </a>
+                            </li>
+                            <li class="menubar-animated-item show" style="--index: 4;">
+                                <a href="" class="sub-option">
+                                    <i class="fas fa-minus-circle menu-icon" data-icon="hided"></i>
+                                    <span>Sub title #3</span>
+                                </a>
+                            </li>
+                            <li class="menubar-animated-item show" style="--index: 5;">
+                                <a href="" class="sub-option">
+                                    <i class="far fa-save menu-icon" data-icon="saved"></i>
+                                    <span>Sub title #4</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!--Panel options container-->
+                    <div class="sub-option-container mt-5">
+                        <div class="sub-option-title menubar-animated-item show" style="--index: 1;">
+                            Title #2
+                        </div>
+                        <ul class="sub-option-list list-unstyled">
+                            <li class="menubar-animated-item show" style="--index: 2;">
+                                <a href="" class="sub-option">
+                                    <i class="fas fa-plus"></i>
+                                    <span>Sub title #1</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div id="designer-credit">
+                    <p>Designed by <a href="https://dribbble.com/shots/10752674-Vanilla-Dashboard-Neumorphic" target="_blank">Karin</a></p>
+                    <p>Developed by <a href="https://github.com/bquangDinh" target="_blank">Quang Dinh Bui</a></p>
+                </div>
+            </div>
+        </div>
+        <!-- Main content container -->
+        <div class="main-content flex-item">
+            <!-- Your content here-->
+            <!--You can put your content whether 
+                into adb-middle-container or without it
+            -->
+            <div class="adb-middle-container animate__animated animate__slideInUp disable-scrollbars">
+                <div class="adb-point-deep-shadow" style="top: 10px; left: 10px"></div>
+                <div class="adb-point-deep-shadow" style="top: 10px; right: 10px"></div>
+                <div class="adb-point-deep-shadow" style="bottom: 10px; left: 10px"></div>
+                <div class="adb-point-deep-shadow" style="bottom: 10px; right: 10px"></div>
+                <div class="adb-top-title text-center mt-3 px-4">Neumorphism Admin Dashboard</div>
+            
+                <div class="scrollable-container">
+                    <div class="component-intro-container mt-5 mx-md-5 mx-2">
+                        <div class="title">
+                            Form Components
+                        </div>
+    
+                        <div class="row mt-4">
+                            <div class="col-12">
+                                <div class="adb-text-field w-100">
+                                    <input type="text" placeholder="Enter something">
+                                </div>
+                            </div>
+                            <div class="col-12 mt-3">
+                                <figure class="adb-code-snippet adb-neumor-container adb-neumor-container--rounded adb-bordered">
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="mx-3 my-3"><b>Text Field</b></div>
+                                        </div>
+                                    </div>
+                                    <pre>
+                                        <code>
+    &lt;div class="text-field"&gt;
+        &lt;input type="text" placeholder="Enter something"&gt;
+    &lt;/div&gt;</code>
+                                    </pre>
+                                </figure>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row mt-4">
+                            <div class="col-12">
+                                <div class="adb-error-message-container ml-2 mb-2 w-100">
+                                    <i class="fas fa-exclamation-circle"></i>
+                                    <span>Something wrong !</span>
+                                </div>
+                                <div class="adb-text-field w-100">
+                                    <input type="text" placeholder="Enter something">
+                                </div>
+                            </div>
+                            <div class="col-12 mt-3">
+                                <figure class="adb-code-snippet adb-neumor-container adb-neumor-container--rounded adb-bordered">
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="mx-3 my-3"><b>Text Field with error message</b></div>
+                                        </div>
+                                    </div>
+                                    <pre>
+                                        <code>
+    &lt;div class="adb-error-message-container ml-2 mb-2 w-100"&gt;
+        &lt;i class="fas fa-exclamation-circle"&gt;&lt;/i&gt;
+        &lt;span&gt;Something wrong !&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;div class="adb-text-field"&gt;
+        &lt;input type="text" placeholder="Enter something"&gt;
+    &lt;/div&gt;</code>
+                                    </pre>
+                                </figure>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row mt-4">
+                            <div class="col-12">
+                                <div class="adb-select-field" id="yourSelect">
+                                    <div class="select-selected">
+                                        <p></p>
+                                    </div>
+                                    <div class="select-items">
+                                    
+                                    </div>
+                                    <select>
+                                        <option value="1">Option 1</option> 
+                                        <option value="2">Option 2</option> 
+                                        <option value="3">Option 3</option> 
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-12 mt-3">
+                                <figure class="adb-code-snippet adb-neumor-container adb-neumor-container--rounded adb-bordered">
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="mx-3 my-3"><b>Select Field (test.html)</b></div>
+                                        </div>
+                                    </div>
+                                    <pre>
+                                        <code>
+    &lt;div class="adb-select-field" id="yourSelect"&gt;
+        &lt;div class="select-selected"&gt;
+            &lt;p&gt;&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;div class="select-items"&gt;
+                                            
+        &lt;/div&gt;
+        &lt;select&gt;
+            &lt;option value="1"&gt;Option 1&lt;/option&gt; 
+            &lt;option value="2"&gt;Option 2&lt;/option&gt; 
+            &lt;option value="3"&gt;Option 3&lt;/option&gt; 
+        &lt;/select&gt;
+    &lt;/div&gt;
+    &lt;script src="Js/mypages/form.js"&gt;&lt;/script&gt;</code>
+                                    </pre>
+                                </figure>
+                            </div>
+                            <div class="col-12 mt-1">
+                                <figure class="adb-code-snippet adb-neumor-container adb-neumor-container--rounded adb-bordered">
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="mx-3 my-3"><b>Select Field (test.js)</b></div>
+                                        </div>
+                                    </div>
+                                    <pre>
+                                        <code>
+    const neumorphismSelectDemo = NeumorphismSelect({
+        selectContainer: '#yourSelect'
+    });
+    neumorphismSelectDemo.initialize();
+                                            
+    $(document).on('click',function(e){
+        neumorphismSelectDemo.closeAllSelects();
+    });</code>
+                                    </pre>
+                                </figure>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row mt-4">
+                            <div class="col-12">
+                                <div class="d-flex justify-content-around">
+                                    <div>Name: <span id="file-name">None</span></div>
+                                    <div>Ext: <span id="file-extension">None</span></div>
+                                    <div>Size: <span id="file-size">None</span></div>
+                                </div>
+                                <div class="adb-dropzone-container">
+                                    <div class="dropzone-field__outer">
+                                        <div class="dropzone-field__inner">
+                                            <input type="file" id="test-file">
+                                            <div class="dropzone-field" id="yourDropzone">
+                                                <i class="fas fa-plus"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 mt-3">
+                                <figure class="adb-code-snippet adb-neumor-container adb-neumor-container--rounded adb-bordered">
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="mx-3 my-3"><b>Drop Zone (test.html)</b></div>
+                                        </div>
+                                    </div>
+                                    <pre>
+                                        <code>
+    &lt;div class="adb-dropzone-container"&gt;
+        &lt;div class="dropzone-field__outer"&gt;
+            &lt;div class="dropzone-field__inner"&gt;
+                &lt;input type="file" id="test-file"&gt;
+                &lt;div class="dropzone-field" id="dropzone-track-field"&gt;
+                    &lt;i class="fas fa-plus"&gt;&lt;/i&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;script src="Js/mypages/form.js"&gt;&lt;/script&gt;</code>
+                                    </pre>
+                                </figure>
+                            </div>
+                            <div class="col-12 mt-1">
+                                <figure class="adb-code-snippet adb-neumor-container adb-neumor-container--rounded adb-bordered">
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="mx-3 my-3"><b>Drop zone (test.js)</b></div>
+                                        </div>
+                                    </div>
+                                    <pre>
+                                        <code>
+    var MAX_FILE_SIZE = 5
+    function showFileInfo(files){
+        $("#file-name").text(files[0].name);
+        $("#file-extension").text(files[0].type);
+        let fileSize = (files[0].size / 1000000);
+        $("#file-size").text(fileSize.toFixed(2) + " MB");
+        if(fileSize &gt; MAX_FILE_SIZE){
+            $("#file-size").addClass("text-danger");
+        }else{
+            $("#file-size").removeClass("text-danger");
+        }
+    }
+    
+    const testDropzone = DropZone({
+        dropZoneContainer: '#yourDropzone',
+        fileInput: '#test-file',
+        handleFileCallback: function(files){
+            showFileInfo(files);
+        },
+        handleFileChangeCallback: function(files){
+            showFileInfo(files);
+        },
+        highlightDropzoneCallback: null,
+        unhighlightDropzoneCallback: null,
+        handleDropCallback: null,
+        handleClickCallback: null,
+    });
+    
+    testDropzone.initialize();</code>
+                                    </pre>
+                                </figure>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row mt-4">
+                            <div class="row">
+                                <div class="col-md-6 col-12">
+                                    <label for="use-test-switch-1" class="adb-neumor-switch">
+                                        <input type="checkbox" id="use-test-switch-1">
+                                        <div class="outer">
+                                            <div class="inner">
+                                                <div class="switch-point"></div>
+                                            </div>
+                                        </div>
+                                    </label>
+                                </div>
+                                <div class="col-md-6 col-12">
+                                    <label for="use-test-switch-2" class="adb-neumor-switch adb-neumor-switch--active-green">
+                                        <input type="checkbox" id="use-test-switch-2">
+                                        <div class="outer">
+                                            <div class="inner">
+                                                <div class="switch-point"></div>
+                                            </div>
+                                        </div>
+                                    </label>
+                                </div>
+                                <div class="col-md-6 col-12">
+                                    <label for="use-test-switch-3" class="adb-neumor-switch adb-neumor-switch--active-red">
+                                        <input type="checkbox" id="use-test-switch-3">
+                                        <div class="outer">
+                                            <div class="inner">
+                                                <div class="switch-point"></div>
+                                            </div>
+                                        </div>
+                                    </label>
+                                </div>
+                                <div class="col-md-6 col-12">
+                                    <label for="use-test-switch-4" class="adb-neumor-switch" style="--your-color: #1abc9c">
+                                        <input type="checkbox" id="use-test-switch-4">
+                                        <div class="outer">
+                                            <div class="inner">
+                                                <div class="switch-point"></div>
+                                            </div>
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-12 mt-3">
+                                <figure class="adb-code-snippet adb-neumor-container adb-neumor-container--rounded adb-bordered">
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="mx-3 my-3"><b>Switch (test.html)</b></div>
+                                        </div>
+                                    </div>
+                                    <pre>
+                                        <code>
+    &lt;label for=&quot;use-folder-switch&quot; class=&quot;adb-neumor-switch&quot;&gt;
+        &lt;input type=&quot;checkbox&quot; name=&quot; id=&quot;use-folder-switch&quot;&gt;
+        &lt;div class=&quot;outer&quot;&gt;
+            &lt;div class=&quot;inner&quot;&gt;
+                &lt;div class=&quot;switch-point&quot;&gt;&lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/label&gt;</code>
+                                    </pre>
+                                </figure>
+                            </div>
+                            <div class="col-12 mt-1">
+                                <figure class="adb-code-snippet adb-neumor-container adb-neumor-container--rounded adb-bordered">
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="mx-3 my-3"><b>Activated green switch (test.html)</b></div>
+                                        </div>
+                                    </div>
+                                    <pre>
+                                        <code>
+    &lt;label for=&quot;use-folder-switch&quot; class=&quot;adb-neumor-switch <strong>adb-neumor-switch--active-green</strong>&quot;&gt;
+        &lt;input type=&quot;checkbox&quot; id=&quot;use-folder-switch&quot;&gt;
+        &lt;div class=&quot;outer&quot;&gt;
+            &lt;div class=&quot;inner&quot;&gt;
+                &lt;div class=&quot;switch-point&quot;&gt;&lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/label&gt;</code>
+                                    </pre>
+                                </figure>
+                            </div>
+                            <div class="col-12 mt-1">
+                                <figure class="adb-code-snippet adb-neumor-container adb-neumor-container--rounded adb-bordered">
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="mx-3 my-3"><b>Activated red switch (test.html)</b></div>
+                                        </div>
+                                    </div>
+                                    <pre>
+                                        <code>
+    &lt;label for=&quot;use-folder-switch&quot; class=&quot;adb-neumor-switch <strong>adb-neumor-switch--active-red</strong>&quot;&gt;
+        &lt;input type=&quot;checkbox&quot; id=&quot;use-folder-switch&quot;&gt;
+        &lt;div class=&quot;outer&quot;&gt;
+            &lt;div class=&quot;inner&quot;&gt;
+                &lt;div class=&quot;switch-point&quot;&gt;&lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/label&gt;</code>
+                                    </pre>
+                                </figure>
+                            </div>
+                            <div class="col-12 mt-1">
+                                <figure class="adb-code-snippet adb-neumor-container adb-neumor-container--rounded adb-bordered">
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="mx-3 my-3"><b>Activated custom color switch (test.html)</b></div>
+                                        </div>
+                                    </div>
+                                    <pre>
+                                        <code>
+    &lt;label for=&quot;use-folder-switch&quot; class=&quot;adb-neumor-switch&quot; <strong>style=&quot;--your-color: #1abc9c&quot;</strong>&gt;
+        &lt;input type=&quot;checkbox&quot; id=&quot;use-folder-switch&quot;&gt;
+        &lt;div class=&quot;outer&quot;&gt;
+            &lt;div class=&quot;inner&quot;&gt;
+                &lt;div class=&quot;switch-point&quot;&gt;&lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/label&gt;</code>
+                                    </pre>
+                                </figure>
+                            </div>
+                        </div>
+                        <hr>              
+                        <div class="row mt-4">
+                            <div class="row w-100">
+                                <div class="col-12 mt-2">
+                                    <div class="adb-checkbox w-100">
+                                        <div class="record">
+                                            <!--Using bootstrap to customize your style-->
+                                            <div class="row h-100">              
+                                                <div class="col-1">
+                                                    <div class="h-100 w-100 d-flex justify-content-center align-items-center">
+                                                        <label class="radio-box">
+                                                            <input type="radio" name="test_radio">
+                                                            <span class="checkmark">
+                                                                <i class="fas fa-check-circle"></i>
+                                                            </span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-7">
+                                                    <div class="w-100 h-100 d-flex justify-content-center align-items-center">
+                                                        <a>
+                                                            <b>file 1</b>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="col-4">
+                                                    <div class="w-100 h-100 d-flex justify-content-center align-items-center">
+                                                        <span>
+                                                            12 MB
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 mt-2">
+                                    <div class="adb-checkbox w-100">
+                                        <div class="record">
+                                            <!--Using bootstrap to customize your style-->
+                                            <div class="row h-100">              
+                                                <div class="col-1">
+                                                    <div class="h-100 w-100 d-flex justify-content-center align-items-center">
+                                                        <label class="radio-box">
+                                                            <input type="radio" name="test_radio">
+                                                            <span class="checkmark">
+                                                                <i class="fas fa-check-circle"></i>
+                                                            </span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-7">
+                                                    <div class="w-100 h-100 d-flex justify-content-center align-items-center">
+                                                        <a>
+                                                            <b>file 2</b>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="col-4">
+                                                    <div class="w-100 h-100 d-flex justify-content-center align-items-center">
+                                                        <span>
+                                                            6 MB
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 mt-2">
+                                    <div class="adb-checkbox w-100">
+                                        <div class="record">
+                                            <!--Using bootstrap to customize your style-->
+                                            <div class="row h-100">              
+                                                <div class="col-1">
+                                                    <div class="h-100 w-100 d-flex justify-content-center align-items-center">
+                                                        <label class="radio-box">
+                                                            <input type="radio" name="test_radio">
+                                                            <span class="checkmark">
+                                                                <i class="fas fa-check-circle"></i>
+                                                            </span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-7">
+                                                    <div class="w-100 h-100 d-flex justify-content-center align-items-center">
+                                                        <a>
+                                                            <b>file 3</b>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="col-4">
+                                                    <div class="w-100 h-100 d-flex justify-content-center align-items-center">
+                                                        <span>
+                                                            5 MB
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 mt-2">
+                                    <div class="adb-checkbox w-100">
+                                        <div class="record">
+                                            <!--Using bootstrap to customize your style-->
+                                            <div class="row h-100">              
+                                                <div class="col-1">
+                                                    <div class="h-100 w-100 d-flex justify-content-center align-items-center">
+                                                        <label class="radio-box">
+                                                            <input type="radio" name="test_radio">
+                                                            <span class="checkmark">
+                                                                <i class="fas fa-check-circle"></i>
+                                                            </span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-7">
+                                                    <div class="w-100 h-100 d-flex justify-content-center align-items-center">
+                                                        <a>
+                                                            <b>file 4</b>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="col-4">
+                                                    <div class="w-100 h-100 d-flex justify-content-center align-items-center">
+                                                        <span>
+                                                            1 MB
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 mt-3">
+                                <figure class="adb-code-snippet adb-neumor-container adb-neumor-container--rounded adb-bordered">
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="mx-3 my-3"><b>Radio box with Bootstrap (test.html)</b></div>
+                                        </div>
+                                    </div>
+                                    <pre>
+                                        <code>
+    &lt;div class=&quot;adb-checkbox w-100&quot;&gt;
+        &lt;div class=&quot;record&quot;&gt;
+            &lt;!--Using bootstrap to customize your style--&gt;
+            &lt;div class=&quot;row h-100&quot;&gt;              
+                &lt;div class=&quot;col-1&quot;&gt;
+                    &lt;div class=&quot;h-100 w-100 d-flex justify-content-center align-items-center&quot;&gt;
+                        &lt;label class=&quot;radio-box&quot;&gt;
+                            &lt;input type=&quot;radio&quot; name=&quot;test_radio&quot;&gt;
+                            &lt;span class=&quot;checkmark&quot;&gt;
+                                &lt;i class=&quot;fas fa-check-circle&quot;&gt;&lt;/i&gt;
+                            &lt;/span&gt;
+                        &lt;/label&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;col-7&quot;&gt;
+                    &lt;div class=&quot;w-100 h-100 d-flex justify-content-center align-items-center&quot;&gt;
+                        &lt;a&gt;
+                            &lt;b&gt;file 1&lt;/b&gt;
+                        &lt;/a&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;col-4&quot;&gt;
+                    &lt;div class=&quot;w-100 h-100 d-flex justify-content-center align-items-center&quot;&gt;
+                        &lt;span&gt;
+                            12 MB
+                        &lt;/span&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;</code>
+                                    </pre>
+                                </figure>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row mt-4">
+                            <div class="row w-100">
+                                <div class="col-12 mt-2">
+                                    <div class="adb-checkbox w-100">
+                                        <div class="record">
+                                            <!--Using bootstrap to customize your style-->
+                                            <div class="row h-100">              
+                                                <div class="col-1">
+                                                    <div class="h-100 w-100 d-flex justify-content-center align-items-center">
+                                                        <label class="radio-box">
+                                                            <input type="checkbox" name="test_radio_1">
+                                                            <span class="checkmark">
+                                                                <i class="fas fa-check-circle"></i>
+                                                            </span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-7">
+                                                    <div class="w-100 h-100 d-flex justify-content-center align-items-center">
+                                                        <a>
+                                                            <b>file 1</b>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="col-4">
+                                                    <div class="w-100 h-100 d-flex justify-content-center align-items-center">
+                                                        <span>
+                                                            12 MB
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 mt-2">
+                                    <div class="adb-checkbox w-100">
+                                        <div class="record">
+                                            <!--Using bootstrap to customize your style-->
+                                            <div class="row h-100">              
+                                                <div class="col-1">
+                                                    <div class="h-100 w-100 d-flex justify-content-center align-items-center">
+                                                        <label class="radio-box">
+                                                            <input type="checkbox" name="test_radio_2">
+                                                            <span class="checkmark">
+                                                                <i class="fas fa-check-circle"></i>
+                                                            </span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-7">
+                                                    <div class="w-100 h-100 d-flex justify-content-center align-items-center">
+                                                        <a>
+                                                            <b>file 2</b>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="col-4">
+                                                    <div class="w-100 h-100 d-flex justify-content-center align-items-center">
+                                                        <span>
+                                                            6 MB
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 mt-2">
+                                    <div class="adb-checkbox w-100">
+                                        <div class="record">
+                                            <!--Using bootstrap to customize your style-->
+                                            <div class="row h-100">              
+                                                <div class="col-1">
+                                                    <div class="h-100 w-100 d-flex justify-content-center align-items-center">
+                                                        <label class="radio-box">
+                                                            <input type="checkbox" name="test_radio_3">
+                                                            <span class="checkmark">
+                                                                <i class="fas fa-check-circle"></i>
+                                                            </span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-7">
+                                                    <div class="w-100 h-100 d-flex justify-content-center align-items-center">
+                                                        <a>
+                                                            <b>file 3</b>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="col-4">
+                                                    <div class="w-100 h-100 d-flex justify-content-center align-items-center">
+                                                        <span>
+                                                            5 MB
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 mt-2">
+                                    <div class="adb-checkbox w-100">
+                                        <div class="record">
+                                            <!--Using bootstrap to customize your style-->
+                                            <div class="row h-100">              
+                                                <div class="col-1">
+                                                    <div class="h-100 w-100 d-flex justify-content-center align-items-center">
+                                                        <label class="radio-box">
+                                                            <input type="checkbox" name="test_radio_4">
+                                                            <span class="checkmark">
+                                                                <i class="fas fa-check-circle"></i>
+                                                            </span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-7">
+                                                    <div class="w-100 h-100 d-flex justify-content-center align-items-center">
+                                                        <a>
+                                                            <b>file 4</b>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="col-4">
+                                                    <div class="w-100 h-100 d-flex justify-content-center align-items-center">
+                                                        <span>
+                                                            1 MB
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 mt-3">
+                                <figure class="adb-code-snippet adb-neumor-container adb-neumor-container--rounded adb-bordered">
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="mx-3 my-3"><b>Check box with Bootstrap (test.html)</b></div>
+                                        </div>
+                                    </div>
+                                    <pre>
+                                        <code>
+    &lt;div class=&quot;adb-checkbox w-100&quot;&gt;
+        &lt;div class=&quot;record&quot;&gt;
+            &lt;!--Using bootstrap to customize your style--&gt;
+            &lt;div class=&quot;row h-100&quot;&gt;              
+                &lt;div class=&quot;col-1&quot;&gt;
+                    &lt;div class=&quot;h-100 w-100 d-flex justify-content-center align-items-center&quot;&gt;
+                        &lt;label class=&quot;radio-box&quot;&gt;
+                            &lt;input type=&quot;<strong>checkbox</strong>&quot; name=&quot;test_radio&quot;&gt;
+                            &lt;span class=&quot;checkmark&quot;&gt;
+                                &lt;i class=&quot;fas fa-check-circle&quot;&gt;&lt;/i&gt;
+                            &lt;/span&gt;
+                        &lt;/label&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;col-7&quot;&gt;
+                    &lt;div class=&quot;w-100 h-100 d-flex justify-content-center align-items-center&quot;&gt;
+                        &lt;a&gt;
+                            &lt;b&gt;file 1&lt;/b&gt;
+                        &lt;/a&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;col-4&quot;&gt;
+                    &lt;div class=&quot;w-100 h-100 d-flex justify-content-center align-items-center&quot;&gt;
+                        &lt;span&gt;
+                            12 MB
+                        &lt;/span&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;</code>
+                                    </pre>
+                                </figure>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                    <div class="w-100 px-2 text-center">
+                        <i>Thank you for choosing Neumorphism Admin Dashboard</i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Panel -->
+        <div class="d-none d-lg-block right-container flex-item" id="adb-right-container">
+            <div class="right-panel animate__animated animate__slideInRight">
+                <div class="right-panel__inner">
+                    <button id="close-right-container-btn">
+                        <i class="fas fa-times"></i>
+                    </button>
+
+                    <div class="upper-panel d-flex justify-content-center align-items-center flex-column">
+                        <div class="adb-avatar rightpanel-animated-item show" style="--index: 0;">
+                            <img src="../Assets/images/user_avatar.jpg" alt="avatar">
+                        </div>
+                        <div class="name rightpanel-animated-item show" style="--index: 1;">
+                            Hello, Dinh!
+                        </div>
+                        <div class="date rightpanel-animated-item show" style="--index: 2;">
+                            Sunday, 3/22/2020
+                        </div>
+                    </div>
+                </div>       
+            </div>
+            
+            <!-- Right Mini Panel -->
+            <div id="right-mini-panel" class="deactive">
+                <button id="open-right-panel">
+                    <i class="fas fa-user-astronaut"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/tippy.js@6"></script>
+    <script src="../Js/mypages/form.js"></script>
+    <script src="../Js/mypages/base.js"></script>
+
+    <!--Your Scripts-->
+</body>
+</html>

@@ -1,0 +1,1395 @@
+@use 'variables' as variables;
+
+/*VARIABLES*/
+$font-path-base: '../../Assets/fonts/';
+$font-nunito: 'Nunito';
+
+$sidebar-width: 80px;
+$sidebar-border-radius: 40px;
+$sidebar-btn-color: #FF73A1;
+
+$menubar-title-color: #8E99A8;
+$menubar-panel-title-clr: #2c3e50;
+
+
+/*Component properties*/
+$alert-height: 50px;
+
+$danger-color: #e74c3c;
+$success-color: #2ecc71;
+$warning-color: #f1c40f;
+$info-color: #3498db;
+$question-color: #34495e;
+
+/*For light mode*/
+$neumorphism-base-color: #F5F7F9;
+$neumorphism-shadow-tl-color: #d0d2d4;
+$neumorphism-shadow-br-color: #ffffff;
+
+$background-color: #E8ECF1;
+$point-deep-shadow-inner-clr: #26272A;
+$top-title-clr: #3E4251;
+$text-clr: #3E4251;
+
+$error-message-color: #e74c3c;
+/*---------*/
+
+/*Mixins*/
+
+/*flat neumorphism*/
+@mixin neumorphism($shadow-size, $base-color, $shadow-tl-color, $shadow-br-color){
+    background-color: $base-color;
+    box-shadow: $shadow-size $shadow-size ($shadow-size * 2) $shadow-tl-color,
+                ($shadow-size * -1) ($shadow-size * -1) ($shadow-size * 2) $shadow-br-color;
+}
+
+@mixin neumorphism-inset($shadow-size, $base-color, $shadow-tl-color, $shadow-br-color){
+    background-color: $base-color;
+    box-shadow: inset $shadow-size $shadow-size ($shadow-size * 2) $shadow-tl-color,
+                inset ($shadow-size * -1) ($shadow-size * -1) ($shadow-size * 2) $shadow-br-color;
+}
+
+@mixin centered-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin neumorphism-border-box{
+    border-width: 2px 0px 0px 2px;
+    border-style: solid;
+    border-color: white;
+    border-radius: 15px;
+}
+
+@mixin colorize-darken($color, $percent){
+    background-color: $color;
+
+    &:hover{
+        background-color: darken($color, $percent);
+    }
+}
+/*------*/
+
+/*Extend*/
+%centered-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+%neumorphism-border-box{
+    border-width: 2px 0px 0px 2px;
+    border-style: solid;
+    border-color: white;
+    border-radius: 15px;
+}
+
+%noselect{
+    -webkit-touch-callout: none; /* iOS Safari */
+      -webkit-user-select: none; /* Safari */
+       -khtml-user-select: none; /* Konqueror HTML */
+         -moz-user-select: none; /* Old versions of Firefox */
+          -ms-user-select: none; /* Internet Explorer/Edge */
+              user-select: none; /* Non-prefixed version, currently
+                                    supported by Chrome, Opera and Firefox */
+}
+/*------*/
+
+/*Typography*/
+@font-face {
+    font-family: Nunito-Black;
+    src: url(variables.$font-path-base + variables.$font-nunito + '/Nunito-Black.ttf');
+}
+  
+@font-face {
+    font-family: Nunito-Bold;
+    src: url(variables.$font-path-base + variables.$font-nunito + '/Nunito-Bold.ttf');
+}
+  
+@font-face {
+    font-family: Nunito-ExtraBold;
+    src: url(variables.$font-path-base + variables.$font-nunito +'/Nunito-ExtraBold.ttf');
+}
+  
+@font-face {
+    font-family: Nunito-Regular;
+    src: url(variables.$font-path-base + variables.$font-nunito +'/Nunito-Regular.ttf');
+}
+  
+@font-face {
+    font-family: Nunito-Light;
+    src: url(variables.$font-path-base + variables.$font-nunito +'/Nunito-Light.ttf');
+}
+/*----------*/
+
+/*GENERAL STYLES*/
+body,html{
+    border: 0;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    overflow: hidden;
+    background-color: variables.$background-color;
+}
+
+*{
+    box-sizing: border-box;
+    font-family: Nunito-Regular;
+}
+
+button, input[type='button'],input[type='submit']{
+    cursor: pointer;
+    border: 0;
+}
+
+button:focus, input:focus, textarea:focus{
+    outline: 0;
+}
+
+button{
+    background: none;
+    border: none;
+}
+
+.page-wrapper{
+    &{
+        overflow: hidden;
+        height: 100vh;
+        width: 100vw;
+        display: flex;
+    }
+
+    .flex-item{
+        &{
+            transition: all 1s ease;
+        }
+    } 
+
+    .left-container{
+        &{
+            position: relative;
+            //z-index: 999;
+            min-width: 80px;
+            flex: 1;
+            width: auto;
+        }
+    
+        .sidebar{
+            &{
+                position: fixed;
+                top: 0;
+                left: 0;
+                bottom: 0;
+                height: 100vh;
+                width: variables.$sidebar-width;
+                z-index: 1;
+                border-top-right-radius: variables.$sidebar-border-radius;
+                border-bottom-right-radius: variables.$sidebar-border-radius;
+        
+                @include neumorphism(
+                    12px,
+                    variables.$neumorphism-base-color,
+                    variables.$neumorphism-shadow-tl-color,
+                    variables.$neumorphism-shadow-br-color
+                );
+            }
+        
+            &-options-container{
+                &{
+                    margin-top: variables.$sidebar-options-gap;
+                }
+        
+                .sidebar-btn-container{
+                    &{
+                        height: variables.$sidebar-btn-size;
+                        width: variables.$sidebar-btn-size;
+                    }
+            
+                    &.active{
+                        border-radius: 10px;
+            
+                        @include neumorphism(
+                            12px,
+                            variables.$neumorphism-base-color,
+                            variables.$neumorphism-shadow-tl-color,
+                            variables.$neumorphism-shadow-br-color
+                        );
+                    }
+            
+                    .sidebar-btn{
+                        &{
+                            height: 100%;
+                            width: 100%;
+                            color: variables.$sidebar-btn-color !important;
+                            font-size: 1.5em;
+                        }
+            
+                        &.active{
+                            border: 2px solid #ECF0F3;
+                            border-radius: 10px;
+                            
+                            @include neumorphism-inset(
+                                5px,
+                                variables.$neumorphism-base-color,
+                                variables.$neumorphism-shadow-tl-color,
+                                variables.$neumorphism-shadow-br-color
+                            );
+                        }
+                    }
+                }
+            }
+        
+            .head-logo{
+                &{
+                    height: 70px;
+                    width: 70px;
+                    border-radius: 50%;
+                    position: absolute;
+                    top: 5px;
+                    left: 5px;
+                    
+                    @include neumorphism(
+                        5px,
+                        variables.$neumorphism-base-color,
+                        variables.$neumorphism-shadow-tl-color,
+                        variables.$neumorphism-shadow-br-color
+                    );
+                }
+        
+                &__inner{
+                    position: absolute;
+                    top: 3px;
+                    left: 3px;
+                    height: 65px;
+                    width: 65px;
+                    border-radius: 50%;
+        
+                    @include neumorphism-inset(
+                        5px,
+                        #FF73A1,
+                        #d96289,
+                        #ff84b9
+                    );
+                }
+            }
+        
+            #open-menubar-btn{
+                position: absolute;
+                top: 90px;
+                left: 15px;
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                color: variables.$sidebar-open-menubar-btn-color;
+                font-size: 1.2em;
+                z-index: 99;
+                transition: all .3s;
+                border: 2px solid white;
+                
+                @include neumorphism(
+                    5px,
+                    variables.$neumorphism-base-color,
+                    variables.$neumorphism-shadow-tl-color,
+                    variables.$neumorphism-shadow-br-color
+                );
+            }
+        }
+        
+        .menubar{
+            &{
+                position: relative;
+                z-index: 0;
+                height: 100vh;
+                width: 100%;
+                border-radius: 40px;
+                @include neumorphism(
+                    20px,
+                    variables.$neumorphism-base-color,
+                    variables.$neumorphism-shadow-tl-color,
+                    variables.$neumorphism-shadow-br-color
+                );
+            }
+    
+            .menubar-animated-item{
+                &{
+                    transform: scale(0);
+                    transition: transform .5s ease;
+                    transition-delay: calc(variables.$menubar-animated-item-duration * var(--index));
+                }
+    
+                &.show{
+                    transform: scale(1);
+                }
+            }
+        
+            .panel{
+                &{
+                    width: 100%;
+                    margin-left: 80px;
+                    padding-top: 100px;
+                }
+        
+                .title{
+                    font-family: Nunito-ExtraBold;
+                    font-size: 2em;
+                    color: variables.$menubar-panel-title-clr;
+                    margin-left: 35px;
+                }
+        
+                .sub-option-container{
+                    &{
+                        margin-left: 35px;
+                    }
+        
+                    .sub-option-title{
+                        font-family: Nunito-Regular;
+                        color: variables.$menubar-title-color;
+                        font-size: 18px;
+                    }
+        
+                    .sub-option-list{
+                        &{
+                            margin-top: 30px;
+                        }
+        
+                        li{
+                            margin-bottom: 10px;
+                        }
+
+                        .sub-option{
+                            &{
+                                font-size: 15px;
+                                text-decoration: none;
+                                color: variables.$text-clr;
+                                letter-spacing: 1px;
+                            }
+
+                            i,span{
+                                transition: color .3s;
+                            }
+            
+                            &.unavailabled{
+                                opacity: 0.5;
+                                cursor: default;
+                            }
+            
+                            &:not(.unavailabled):hover i,
+                            &:not(.unavailabled):hover span{
+                                color: variables.$menubar-hovered-text-color !important;
+                            }
+            
+                            span{
+                                padding-left: 20px;
+                                font-family: Nunito-Bold;
+                            }
+                        }
+                    }
+                }
+            }
+        
+            #collapse-menu-btn{
+                position: absolute;
+                top: 10px;
+                right: 10px;
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                color: variables.$menubar-collapse-menubar-btn-color;
+                font-size: 1.2em;
+                z-index: 99;
+                transition: all .3s;
+                border: 2px solid white;
+        
+                @include neumorphism(
+                    5px,
+                    variables.$neumorphism-base-color,
+                    variables.$neumorphism-shadow-tl-color,
+                    variables.$neumorphism-shadow-br-color
+                );
+            }
+
+            #designer-credit{
+                &{
+                    font-family: Nunito-Regular;
+                    position: absolute;
+                    bottom: 15px;
+                    width: 100%;
+                    text-align: center;
+                }
+
+                a{
+                    font-family: Nunito-Bold;
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+    
+    /*The section other pages will use*/
+    .main-content{
+        position: relative;
+        flex: 3;
+        @extend %centered-container;
+    }
+    
+    .right-container{
+        &{
+            position: relative;
+            flex: 1;
+            min-width: 50px;
+        }
+    
+        .right-panel{
+            &{
+                position: relative;
+                @extend %centered-container;
+                
+                flex-direction: column;
+                z-index: 0;
+                width: 100%;
+                height: 100vh;
+                border-top-left-radius: 35px;
+                border-bottom-left-radius: 35px;
+                border: 2px solid white;
+                
+    
+                @include neumorphism(
+                    20px,
+                    variables.$neumorphism-base-color,
+                    variables.$neumorphism-shadow-tl-color,
+                    variables.$neumorphism-shadow-br-color
+                );
+            }
+        
+            &.deactive{
+                display: none;
+            }
+        
+            #close-right-container-btn{
+                position: absolute;
+                top: 10px;
+                left: 10px;
+                width: 50px;
+                height: 50px;
+                color: variables.$rightpanel-collpase-rightpanel-btn-color;
+                font-size: 1.2em;
+                border-radius: 50%;
+                transition: all .3s;
+                border: 2px solid white;
+        
+                @include neumorphism(
+                    5px,
+                    variables.$neumorphism-base-color,
+                    variables.$neumorphism-shadow-tl-color,
+                    variables.$neumorphism-shadow-br-color
+                );
+            }
+
+            .upper-panel{
+                &{
+                    width: 100%;   
+                }
+                
+                .adb-avatar{
+                    &{
+                        position: relative;
+                        width: 150px;
+                        height: 150px;
+                        border-radius: 50%;
+                        border: 2px solid white;
+        
+                        @include neumorphism(
+                            19px,
+                            variables.$neumorphism-base-color,
+                            variables.$neumorphism-shadow-tl-color,
+                            variables.$neumorphism-shadow-br-color
+                        );
+                    }
+        
+                    img{
+                        position: absolute;
+                        width: 140px;
+                        height: 140px;
+                        border-radius: 50%;
+                        object-fit: cover;
+                        top: 3px;
+                        left: 3px;
+                    }
+                }
+        
+                .name{
+                    font-family: Nunito-Bold;
+                    font-size: 1.5em;
+                    color: variables.$text-clr;
+                    margin-top: 20px;
+                }
+        
+                .date{
+                    font-family: Nunito-Regular;
+                    font-size: 18px;
+                    color: #8E99A8;
+                    margin-top: 5px;
+                }
+
+                .rightpanel-animated-item{
+                    &{
+                        transform: scale(0);
+                        transition: transform .5s ease;
+                        transition-delay: calc(0.095s * var(--index));
+                    }
+
+                    &.show{
+                        transform: scale(1);
+                    }
+                }
+            }
+        }
+        
+        //when the big right panel collapses, show this instead
+        #right-mini-panel{
+            &{
+                position: absolute;
+        
+                @extend %centered-container;
+        
+                flex-direction: column;
+        
+                top: 0;
+                right: 0;
+                height: 100vh;
+                width: variables.$rightpanel-mini-width;
+                border-top-left-radius: 35px;
+                border-bottom-left-radius: 35px;
+                
+                @include neumorphism(
+                    19px,
+                    variables.$neumorphism-base-color,
+                    variables.$neumorphism-shadow-tl-color,
+                    variables.$neumorphism-shadow-br-color
+                );
+            }
+        
+            &.deactive{
+                display: none;
+            }
+        
+            #open-right-panel{
+                height: 100%;
+                width: 50px;
+                font-size: 1.3em;
+                color: variables.$text-clr;
+            }
+        }
+    }
+}
+/*--------------*/
+
+/*UTILITIES*/
+.centered-container{
+    @extend %centered-container;
+}
+
+.row.no-gutters{
+    margin-right: 0;
+    margin-left: 0;
+}
+
+.row.no-gutters > [class^="col-"],
+.row.no-gutters > [class^=" col-"]{
+    padding-right: 0;
+    padding-left: 0;
+}
+
+.disable-scrollbars::-webkit-scrollbar {
+    width: 0px;
+    background: transparent; /* Chrome/Safari/Webkit */
+}
+
+.disable-scrollbars {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;  /* IE 10+ */
+}
+
+.no-select{
+    @extend %noselect;
+}
+
+/*Tippy box settings*/
+.tippy-box[data-theme~='neumorphism'] {
+    color: variables.$text-clr;
+    font-family: Nunito-Bold;
+    padding: 5px;
+    border-radius: 10px;
+    
+    @include neumorphism(
+        5px,
+        variables.$neumorphism-base-color,
+        variables.$neumorphism-shadow-tl-color,
+        variables.$neumorphism-shadow-br-color
+    );
+}
+
+.tippy-box[data-theme~='neumorphism'][data-placement^='top'] > .tippy-arrow::before {
+    border-top-color: variables.$neumorphism-base-color;
+}
+
+.tippy-box[data-theme~='tomato'][data-placement^='bottom'] > .tippy-arrow::before {
+    border-top-color: variables.$neumorphism-base-color;
+}
+
+.tippy-box[data-theme~='tomato'][data-placement^='left'] > .tippy-arrow::before {
+    border-top-color: variables.$neumorphism-base-color;
+}
+
+.tippy-box[data-theme~='tomato'][data-placement^='right'] > .tippy-arrow::before {
+    border-top-color: variables.$neumorphism-base-color;
+}
+/*---------*/
+
+/*Components*/
+.adb-middle-container{
+    &{
+        width: variables.$main-container-size-scale-width;
+        height: variables.$main-container-size-scale-height;
+        position: relative;
+        border-radius: 20px;
+
+        @include neumorphism(
+            5px, 
+            variables.$neumorphism-base-color, 
+            variables.$neumorphism-shadow-tl-color, 
+            variables.$neumorphism-shadow-br-color
+        );
+    }
+
+    .adb-top-title{
+        font-family: Nunito-Bold;
+        font-size: 2em;
+        color: variables.$top-title-clr;
+    }
+}
+
+.adb-point-deep-shadow{
+    &{
+        height: variables.$point-deep-shadow-size;
+        width: variables.$point-deep-shadow-size;
+        border-radius: 50%;
+        border: 0;
+        position: absolute;
+        
+        @include neumorphism(
+            6px, 
+            variables.$neumorphism-base-color, 
+            variables.$neumorphism-shadow-tl-color, 
+            variables.$neumorphism-shadow-br-color
+        );
+    }
+
+    &:after{
+        content: "";
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        height: 10px;
+        width: 10px;
+        border-radius: 50%;
+        background-color: variables.$point-deep-shadow-inner-clr;
+    }
+}
+
+.adb-neumor-container{
+    &{
+        @include neumorphism(
+            5px,
+            variables.$neumorphism-base-color,
+            variables.$neumorphism-shadow-tl-color,
+            variables.$neumorphism-shadow-br-color
+        );
+    }
+
+    &--rounded{
+        border-radius: 15px;
+    }
+}
+
+.adb-bordered{
+    @extend %neumorphism-border-box;
+}
+
+.adb-neumor-btn{
+    &{
+        padding: 5px 10px 5px 10px;
+        @include neumorphism(
+            5px,
+            variables.$neumorphism-base-color,
+            variables.$neumorphism-shadow-tl-color,
+            variables.$neumorphism-shadow-br-color
+        );
+    }
+}
+
+/*FORM > error message container*/
+.adb-error-message-container{
+    span{
+        font-family: Nunito-Bold;
+    }
+
+    i{
+        color: variables.$error-message-color;
+    }
+}
+
+/*FORM > text field*/
+.adb-text-field{
+    &{
+        height: 70px;
+
+        @extend %centered-container;
+        @extend %neumorphism-border-box;
+
+        transition: all .4s;
+        
+        @include neumorphism(
+            5px, 
+            variables.$neumorphism-base-color, 
+            variables.$neumorphism-shadow-tl-color, 
+            variables.$neumorphism-shadow-br-color
+        );
+    }
+
+    &:hover{
+        @include neumorphism(
+            20px, 
+            variables.$neumorphism-base-color, 
+            variables.$neumorphism-shadow-tl-color, 
+            variables.$neumorphism-shadow-br-color
+        );
+    }
+
+    &:focus-within{
+        @include neumorphism-inset(
+            5px, 
+            variables.$neumorphism-base-color, 
+            variables.$neumorphism-shadow-tl-color, 
+            variables.$neumorphism-shadow-br-color
+        );
+    }
+
+    input[type='text']{
+        height: 100%;
+        width: 90%;
+        border: 0;
+        background-color: transparent;
+        font-family: Nunito-Regular;
+        font-size: 20px;
+        color: variables.$text-clr;;
+    }
+}
+
+/*Form > select field*/
+.adb-select-field{
+    &{
+        position: relative;
+        font-family: Nunito-Bold;
+        letter-spacing: 1px;
+        font-size: 1.2em;
+        height: variables.$select-height;
+        
+        @extend %neumorphism-border-box;
+
+        @include neumorphism(
+            5px, 
+            variables.$neumorphism-base-color, 
+            variables.$neumorphism-shadow-tl-color, 
+            variables.$neumorphism-shadow-br-color
+        );
+
+        transition: all .4s;
+    }
+
+    &:hover{
+        @include neumorphism(
+            21px, 
+            variables.$neumorphism-base-color, 
+            #b7c3cf, 
+            #f7ffff
+        );
+    }
+
+    select{
+        display: none;
+    }
+
+    .select-selected{
+        &{
+            height: 70px;
+            color: variables.$select-selected-item-color;
+            cursor: pointer;
+            border-radius: 15px;
+        }
+
+        &:after{
+            font-family: "Font Awesome 5 Free"; 
+            font-weight: 900;
+            content: "\f107";
+            font-size: 1.5em;
+            position: absolute;
+            top: 12px;
+            right: 26px;
+        }
+
+        &:focus{
+            outline: 0;
+    
+            @include neumorphism-inset(
+                12px, 
+                $neumorphism-base-color, 
+                #b7c3cf, 
+                #f7ffff
+            );
+        }
+
+        &.select-arrow-active:after{
+            content: "\f106";
+        }
+
+        p{
+            position: absolute;
+            top: 20px;
+            left: 30px;
+        }
+    }
+
+    .select-items{
+        &{
+            position: absolute;
+            top: 120%;
+            left: 0;
+            right: 0;
+            z-index: 99;
+
+            @extend %neumorphism-border-box;
+
+            border-radius: 20px;
+
+            @include neumorphism(
+                12px, 
+                variables.$neumorphism-base-color, 
+                variables.$neumorphism-shadow-tl-color, 
+                variables.$neumorphism-shadow-br-color
+            );
+        }
+
+        & div{
+            &{
+                background-color: variables.$select-background-color;
+                border-radius: 5px;
+                padding: 10px;
+                color: variables.$text-clr;
+                cursor: pointer;
+            }
+
+            &:first-child{
+                margin-top: 10px;
+            }
+
+            &:last-child{
+                margin-bottom: 10px;
+            }
+
+            &:hover:not(.same-as-selected){
+                background-color: variables.$select-selected-background-color;
+                color: variables.$select-selected-item-color; 
+            }
+        }
+
+        &.hide{
+            display: none;
+        }
+
+        .same-as-selected{
+            background-color: variables.$select-same-as-selected-background-color;
+            color: variables.$select-selected-item-color;
+        }
+    }
+}
+
+/* FORM > drop zone */
+.adb-dropzone-container{
+    .dropzone-field__outer{
+        &{
+            border-radius: 10px;
+    
+            @include neumorphism(
+                6px,
+                variables.$neumorphism-base-color,
+                variables.$neumorphism-shadow-tl-color,
+                variables.$neumorphism-shadow-br-color
+            );
+        }
+    
+        .dropzone-field__inner{
+            &{
+                width: 100%;
+                border-radius: 10px;
+                background: variables.$dropzone-field-inner-background-color;
+            }
+    
+            input[type='file']{
+                display: none;
+            }
+
+            .dropzone-field{
+                &{
+                    height: variables.$dropzone-field-height;
+                    width: 100%;
+                    border-radius: 10px;
+                    cursor: pointer;
+                    
+                    @extend %centered-container;
+        
+                    @include neumorphism-inset(
+                        6px,
+                        variables.$neumorphism-base-color,
+                        variables.$neumorphism-shadow-tl-color,
+                        variables.$neumorphism-shadow-br-color
+                    );
+        
+                    //will fall back to base color when on older browers if gradient doesn't work
+                    background: variables.$dropzone-field-inner-gradient-background-color;
+                }
+        
+                i{
+                    font-size: 2em;
+                    color: variables.$text-clr;
+                }
+
+                &.highlighted{
+                    border: 2px solid variables.$dropzone-highlighted-border-color;
+                }
+            }
+        }
+    }
+}
+
+/*Form > switch*/
+.adb-neumor-switch{
+    $switch-active-blue: #40ADFF;
+    $switch-active-green: #2ecc71;
+    $switch-active-red: #e74c3c;
+    $switch-active-custom-color: --your-color;
+
+    /*Default setting*/
+    input[type='checkbox']{
+        &{
+            display: none;
+        }
+
+        &:checked + .outer .inner .switch-point{
+            transform: translateX(58px);
+        }
+
+        &:checked + .outer .inner{
+            background-color: var($switch-active-custom-color, variables.$switch-active-blue);
+        }
+    }
+
+    &--active-green{
+        input[type='checkbox']{
+            &{
+                display: none;
+            }
+    
+            &:checked + .outer .inner .switch-point{
+                transform: translateX(58px);
+            }
+    
+            &:checked + .outer .inner{
+                background-color: variables.$switch-active-green !important;
+            }
+        }
+    }
+
+    &--active-red{
+        input[type='checkbox']{
+            &{
+                display: none;
+            }
+    
+            &:checked + .outer .inner .switch-point{
+                transform: translateX(58px);
+            }
+    
+            &:checked + .outer .inner{
+                background-color: variables.$switch-active-red !important;
+            }
+        }
+    }
+
+    .outer{
+        &{
+            width: variables.$switch-width;
+            height: variables.$switch-height;
+            border-radius: 30px;
+
+            @include neumorphism(
+                5px,
+                variables.$neumorphism-base-color,
+                variables.$neumorphism-shadow-tl-color,
+                variables.$neumorphism-shadow-br-color
+            );
+        }
+
+        .inner{
+            &{
+                width: 100%;
+                height: 100%;
+                border-radius: 30px;
+                background-color: variables.$switch-inner-background-color;
+                position: relative;
+                transition: background-color .5s;
+            }
+
+            .switch-point{
+                width: 35px;
+                height: 35px;
+                border-radius: 25px;
+                position: absolute;
+                top: 2px;
+                left: 3px;
+                transform: translateX(0);
+                transition: transform .5s;
+                cursor: pointer;
+                background: variables.$switch-point-color;
+            }
+        }
+    }
+}
+
+/*Form > checkbox*/
+.adb-checkbox{
+    .record{
+        &{
+            width: 100%;
+            height: 50px;
+            
+            @extend %neumorphism-border-box;
+            
+            @include neumorphism(
+                5px,
+                variables.$neumorphism-base-color,
+                variables.$neumorphism-shadow-tl-color,
+                variables.$neumorphism-shadow-br-color
+            );
+        }
+
+        .radio-box{
+            &{
+                position: relative;
+            }
+        
+            input{
+                display: none;
+            }
+        
+            .checkmark{
+                &{
+                    position: absolute;
+                    top: -3px;
+                    left: 0;
+                    height: variables.$checkmark-size;
+                    width: variables.$checkmark-size;
+                    cursor: pointer;
+                    border-radius: 50%;
+                    
+                    @include neumorphism-inset(
+                        5px,
+                        variables.$neumorphism-base-color,
+                        variables.$neumorphism-shadow-tl-color,
+                        variables.$neumorphism-shadow-br-color
+                    );
+                }
+        
+                i{
+                    display: none;
+                    color: variables.$checkmark-checked-color;
+                }
+            }
+        
+            input[type='radio']:checked + .checkmark i{
+                display: block;
+            }
+            
+            input[type='checkbox']:checked + .checkmark i{
+                display: block;
+            }
+        }
+    }
+}
+
+/*Component > alert*/
+.adb-alert{
+    &{
+        width: 100%;
+
+        color: $text-clr;
+
+        padding: 12px 20px 12px 20px;
+
+        font-family: Nunito-Bold;
+
+        @include neumorphism(
+            5px,
+            variables.$neumorphism-base-color,
+            variables.$neumorphism-shadow-tl-color,
+            variables.$neumorphism-shadow-br-color
+        );
+        
+        @extend %neumorphism-border-box;
+        border-radius: 8px;
+    }
+
+    &--danger{
+        &::before{
+            font-family: "Font Awesome 5 Free"; 
+            font-weight: 900;
+            -webkit-font-smoothing: antialiased;
+            content: '\f06a';
+            color: variables.$danger-color;
+        }
+    }
+
+    &--warning{
+        &::before{
+            font-family: "Font Awesome 5 Free"; 
+            font-weight: 900;
+            -webkit-font-smoothing: antialiased;
+            content: '\f1e2';
+            color: variables.$warning-color;
+        }
+    }
+
+    &--success{
+        &::before{
+            font-family: "Font Awesome 5 Free"; 
+            font-weight: 900;
+            -webkit-font-smoothing: antialiased;
+            content: '\f058';
+            color: variables.$success-color;
+        }
+    }
+
+    &--info{
+        &::before{
+            font-family: "Font Awesome 5 Free"; 
+            font-weight: 900;
+            -webkit-font-smoothing: antialiased;
+            content: '\f05a';
+            color: variables.$info-color;
+        }
+    }
+
+    &--question{
+        &::before{
+            font-family: "Font Awesome 5 Free"; 
+            font-weight: 900;
+            -webkit-font-smoothing: antialiased;
+            content: '\f059';
+            color: variables.$question-color;
+        }
+    }
+}
+
+/*Component > button*/
+.adb-button{
+    &{
+        font-family: Nunito-Bold;
+        padding: 10px;
+
+        @extend %neumorphism-border-box;
+
+        border-radius: 10px;
+
+        @include neumorphism(
+            5px,
+            variables.$neumorphism-base-color,
+            variables.$neumorphism-shadow-tl-color,
+            variables.$neumorphism-shadow-br-color
+        );
+
+        @include colorize-darken(variables.$neumorphism-base-color, 10%);
+
+        transition: background-color .4s;
+    }
+
+    &--success{
+        background-color: variables.$btn-success-color;
+
+        @include colorize-darken(variables.$btn-success-color, 10%);
+
+        color: variables.$light-text-color;
+    }
+
+    &--danger{
+        background-color: variables.$btn-danger-color;
+
+        @include colorize-darken(variables.$btn-danger-color, 10%);
+
+        color: variables.$light-text-color;
+    }
+
+    &--warning{
+        background-color: variables.$btn-warning-color;
+
+        @include colorize-darken(variables.$btn-warning-color, 10%);
+
+        color: variables.$light-text-color;
+    }
+
+    &--primary{
+        background-color: variables.$btn-primary-color;
+
+        @include colorize-darken(variables.$btn-primary-color, 10%);
+
+        color: variables.$light-text-color;
+    }
+}
+
+/*Component > card*/
+.adb-card{
+    &{
+        @extend %neumorphism-border-box;
+
+        @include neumorphism(
+            5px,
+            variables.$neumorphism-base-color,
+            variables.$neumorphism-shadow-tl-color,
+            variables.$neumorphism-shadow-br-color
+        );
+
+        border-radius: 10px;
+
+        margin: 10px;
+    }
+
+    .card-image-top{
+        &{
+            width: 100%;
+            height: auto;
+            border-top-left-radius: inherit;
+            border-top-right-radius: inherit;
+        }
+    }
+
+    .body{
+        &{
+            padding: 20px;
+        }
+
+        .title{
+            font-family: Nunito-Bold;
+            //padding: 20px 10px 20px 20px;
+            color: variables.$text-clr;
+        }
+
+        .content{
+            font-family: Nunito-Regular;
+            color: variables.$text-clr;
+            padding: 10px 0px 10px 0px;
+        }
+    }
+}
+
+/*Component > progress bar*/
+.adb-progressbar{
+    &{
+        position: relative;
+
+        height: 20px;
+
+        @include neumorphism-inset(
+            5px,
+            $neumorphism-base-color,
+            $neumorphism-shadow-tl-color,
+            $neumorphism-shadow-br-color
+        );
+
+        border-radius: 10px;
+    }
+
+    &__inner{
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        font-family: Nunito-Bold;
+        color: variables.$progressbar-text-color;
+        border-radius: 10px;
+
+        @extend %centered-container;
+
+        @extend %progressbar-theme-1; // variables.scss // default
+    }
+
+    &--theme-1{
+        .adb-progressbar__inner{
+            @extend %progressbar-theme-1;
+        }
+    }
+
+    &--theme-2{
+        .adb-progressbar__inner{
+            @extend %progressbar-theme-2;
+        }
+    }
+
+    &--theme-3{
+        .adb-progressbar__inner{
+            @extend %progressbar-theme-3;
+        }
+    }
+}
+/*----------*/
+
+/*Animations*/
+@keyframes flexShrink {
+    to{
+        flex: 0.0001;
+    }
+}
+
+@keyframes flexGrow {
+    to{
+        flex: 1;
+    }
+}
+/*----------*/
+
+/*Responsive settings*/
+/*For small screens*/
+@media screen and (max-width: 768px){
+    .page-wrapper{
+        .left-container{
+            .sidebar{
+                z-index: 999;
+            }
+    
+            .menubar{
+                &{
+                    z-index: 998;
+                    width: 100vw;
+                }
+    
+                .panel{
+                    width: 100%;
+                    margin: 0;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    flex-direction: column;
+                }  
+            }
+        }
+    }
+}

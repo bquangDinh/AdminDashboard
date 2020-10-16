@@ -1,0 +1,107 @@
+/*Typography*/
+$font-path-base: '../../Assets/fonts/';
+$font-nunito: 'Nunito';
+
+/*Sidebar properties*/
+$sidebar-width: 80px;
+$sidebar-options-gap: 150px;
+$sidebar-border-radius: 40px;
+$sidebar-btn-color: #FF73A1;
+$sidebar-btn-size: $sidebar-width;
+$sidebar-open-menubar-btn-color: #F55E5E;
+
+/*Menubar properties*/
+$menubar-title-color: #8E99A8;
+$menubar-panel-title-clr: #2c3e50;
+$menubar-animated-item-duration: 0.095s;
+$menubar-hovered-text-color: #FF73A1;
+$menubar-collapse-menubar-btn-color: #F55E5E;
+
+/*Right panel properties*/
+$rightpanel-collpase-rightpanel-btn-color: #F55E5E;
+$rightpanel-mini-width: 50px;
+
+/*Main Container*/
+$main-container-size-scale-width: 95%;
+$main-container-size-scale-height: 95%;
+$top-title-clr: #3E4251;
+
+/*Theme*/
+/*Light mode*/
+$neumorphism-base-color: #F5F7F9;
+$neumorphism-shadow-tl-color: #d0d2d4;
+$neumorphism-shadow-br-color: #ffffff;
+$background-color: #E8ECF1;
+$text-clr: #3E4251;
+
+/*Dark mode*/
+/*---------*/
+
+/*Decoration*/
+$point-deep-shadow-size: 30px;
+$point-deep-shadow-inner-clr: #26272A;
+
+/*Form*/
+$error-message-color: #e74c3c;
+
+/*Select*/
+$select-height: 70px;
+$select-selected-item-color: #49ADE6;
+$select-selected-background-color: #e8f1fa;
+$select-background-color: #F5F7F9;
+$select-same-as-selected-background-color: #D7E5F3;
+
+/*Dropzone*/
+$dropzone-field-inner-background-color: #F5F7F9;
+$dropzone-field-inner-gradient-background-color: repeating-linear-gradient(45deg, #F5F7F9, #ecf0f3 15px, #ecf0f3 15px);
+$dropzone-field-height: 250px;
+$dropzone-highlighted-border-color: #2ecc71;
+
+/*Switch*/
+$switch-active-blue: #40ADFF;
+$switch-active-green: #2ecc71;
+$switch-active-red: #e74c3c;
+$switch-width: 100px;
+$switch-height: 40px;
+$switch-inner-background-color: #CED6DF;
+$switch-point-color: #F5F7F9;
+
+/*Checkbox Radiobox*/
+$checkmark-size: 15px;
+$checkmark-checked-color: #70CE5A;
+
+/*Componenents properties*/
+
+/*Alert*/
+/*Alert Colors Set*/
+$danger-color: #e74c3c;
+$success-color: #2ecc71;
+$warning-color: #f1c40f;
+$info-color: #3498db;
+$question-color: #34495e;
+
+/*Button*/
+/*Button Colors Set*/
+$btn-danger-color: #e74c3c;
+$btn-success-color: #2ecc71;
+$btn-warning-color: #f1c40f;
+$btn-primary-color: #3498db;
+$light-text-color: #F5F7F9;
+
+/*Progressbar*/
+$progressbar-text-color: #F5F7F9;
+
+%progressbar-theme-1{
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
+}
+
+%progressbar-theme-2{
+    background: rgb(63,94,251);
+    background: linear-gradient(90deg, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);
+}
+
+%progressbar-theme-3{
+    background: rgb(238,174,202);
+    background: linear-gradient(90deg, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%); 
+}

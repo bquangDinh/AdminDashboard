@@ -1,0 +1,30 @@
+@use '../base/base' as base;
+
+$strong-color: #3498db;
+
+.component-intro-container{
+    .title{
+        font-family: Nunito-Bold;
+        font-size: 1.5em;
+        color: base.$text-clr;
+    }
+}
+
+.scrollable-container{
+    &{
+        overflow-y: auto;
+        height: 80%;
+        margin-bottom: 50px;
+        width: 95%;
+    }
+
+    .greet-text{
+        position: absolute;
+        bottom: 10px;
+    }
+}
+
+strong{
+    font-family: Nunito-Bold;
+    color: $strong-color;
+}
